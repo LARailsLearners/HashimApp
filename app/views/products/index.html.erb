@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+<h1>Listing Products</h1>
+<div>
+<% @products.each do |product| %>
+<div class="col-sm-4 col-md-3">
+      <div class="productbox">
+        <div class="imgthumb img-responsive">
+          <img src="http://blogs-images.forbes.com/scottmendelson/files/2015/06/Jurassic-World-The-Game.jpg" width="304" height="236">
+        </div>
+        <div class="caption">
+          
+                    <table class = "table">
+                      <tr>
+                        <td>Name</td>
+                        <td>Description</td>
+                        <td>Cost</td>
+                        <td>Belongs to User</td>
+                        <td></td>
+      
+                      </tr>
+                
+                      <tr>
+                        <td><%= product.name %></td>
+                        <td><%= product.description %></td>
+                        <td><%= product.cost %></td>
+                        <td><%= product.user_id %></td>
+                        <td><%= link_to 'Show', product %>
+                         <% if can? :update, product %><%= link_to 'Edit', edit_product_path(product) %><% end %>
+                         <% if can? :destroy, product %> <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %><% end %>
+                       </td>
+                      </tr>
+    
+                    </table>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+</div>
+
+
+
+<br>
+<div>
+<%= link_to 'New Product', new_product_path %></div>
