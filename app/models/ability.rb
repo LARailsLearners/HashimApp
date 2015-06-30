@@ -38,7 +38,6 @@ class Ability
             can :show, Product
 
             can :update, Product do |product|
-                
                 product.user_id == user.id
             end
             

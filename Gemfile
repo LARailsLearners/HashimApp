@@ -22,10 +22,19 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'cancan'
 
+group :test do
+  gem 'minitest-rails'
+  gem 'minitest'
+  gem "minitest-reporters"
+end
+
+gem 'guard'
+gem 'guard-minitest', '~> 2.4.4'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
