@@ -1,36 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<h2> User Profile</h2>
+<div class="panel panel-success"> 
 
-<table class ="table table-responsive">
-<tr>
-  <td><strong>Firstname</strong></td>
-  <td><strong>Lastname</strong></td>
-  <td><strong>Email</strong></td>
+  <div class="panel-heading">User Profile</div>
 
-</tr>
-<tr>
-  <td><%= @user.firstname %></td>
-  <td><%= @user.lastname %></td>
-  <td><%= @user.email %></td>
+  <div class="panel-body">
 
-</tr>
+      <table class ="table table-responsive table-condensed">
+          <tr>
+            <td><strong>Firstname</strong></td>
+            <td><strong>Lastname</strong></td>
+            <td><strong>Email</strong></td>
 
-  </table>
-<br/><br/><br/>
+          </tr>
+          <tr>
+            <td><%= @user.firstname %></td>
+            <td><%= @user.lastname %></td>
+            <td><%= @user.email %></td>
+
+          </tr>
+
+      </table>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+</div>
+</div>
+<div class="panel panel-success"> 
 
+  <div class="panel-heading"><%= @user.firstname %>'s Products </div>
 
-<h3> <%= @user.firstname %>'s Products </h3>
-<table class="table">
-        <tr>
-          <td>Product Name</td>
-          <td>Product Description</td>
-          <td>Product Cost</td>
-          <td>Belongs to User </td>
-          <td></td>
-        </tr>
+      <div class="panel-body">
+          <table class="table">
+            <tr>
+              <td>Product Name</td>
+              <td>Product Description</td>
+              <td>Product Cost</td>
+              <td>Belongs to User </td>
+              <td></td>
+            </tr>
 <% @products.each do |product| %>
       
 
@@ -44,8 +52,10 @@
               <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
 <% end %>
-    </table><br/>
-    
-<br/><br/><br/>
+
+    </table>
+    </div>
+</div>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  ActiveAdmin.routes(self)
   resources :products
   devise_for :users
   resources :users

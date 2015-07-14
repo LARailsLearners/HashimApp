@@ -28,26 +28,30 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
+        can :index, Product
+        can :show, Product
+        if user
 
-        if user.admin !=0
-            can :manage, Product
+            if user.admin !=0
+                can :manage, Product
 
-        else 
-            can :index, Product
+            else 
+                can :index, Product
 
-            can :show, Product
+                can :show, Product
 
-            can :update, Product do |product|
+                can :update, Product do |product|
+                    
+                    product.user_id == user.id
+                end
                 
-                product.user_id == user.id
-            end
-            
-            can :destroy, Product do |product|
-                product.user_id == user.id
-            end
-            can :create, Product
+                can :destroy, Product do |product|
+                    product.user_id == user.id
+                end
+                can :create, Product
 
-        end
+            end
+       end
         
     end
   
